@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class PicturesDisplayed extends Component {
   render () {
     let pictures = this.props.currentAlbum.photos.map((picture, index) => {
-      return <Picture picture={picture} key={index} />
+      return <Picture navToImage={this.props.navToImage} picture={picture} key={index} />
     })
     return <div className='PicturesDisplayed'>
       <header>
@@ -21,9 +21,12 @@ class PicturesDisplayed extends Component {
 }
 
 class Picture extends Component {
+  displayImage = () => {
+    this.props.navToImage('IndividualImageView', this.props.picture)
+  }
   render () {
     return <div className='Picture'>
-      <img src={this.props.picture} alt='' />
+      <img onClick={this.displayImage} src={this.props.picture} alt='' />
       <h3>Description</h3>
     </div>
   }
