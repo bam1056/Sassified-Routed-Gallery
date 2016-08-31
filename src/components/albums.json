@@ -1,0 +1,88 @@
+{
+  "PhotoAlbums": [
+    {
+      "Album": {
+        "photos": [
+          "https://unsplash.it/200/?image=123",
+          "https://unsplash.it/200/?image=234",
+          "https://unsplash.it/200/?image=4",
+          "https://unsplash.it/200/?image=63",
+          "https://unsplash.it/200/?image=98",
+          "https://unsplash.it/200/?image=301"
+        ],
+        "coverPhoto": "https://unsplash.it/200/?image=123",
+        "name": "Album 1"
+      }
+    },
+    {
+      "Album": {
+        "photos": [
+          "https://unsplash.it/200/?image=59",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random"
+        ],
+        "coverPhoto": "https://unsplash.it/200/?image=59",
+        "name": "Album 2"
+      }
+    },
+    {
+      "Album": {
+        "photos": [
+          "https://unsplash.it/200/?image=136",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random"
+        ],
+        "coverPhoto": "https://unsplash.it/200/?image=136",
+        "name": "Album 3"
+      }
+    },
+    {
+      "Album": {
+        "photos": [
+          "https://unsplash.it/200/?image=201",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random"
+        ],
+        "coverPhoto": "https://unsplash.it/200/?image=201",
+        "name": "Album 4"
+      }
+    },
+    {
+      "Album": {
+        "photos": [
+          "https://unsplash.it/200/?image=340",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random"
+        ],
+        "coverPhoto": "https://unsplash.it/200/?image=340",
+        "name": "Album 5"
+      }
+    },
+    {
+      "Album": {
+        "photos": [
+          "https://unsplash.it/200/?image=74",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random",
+          "https://unsplash.it/200/?random"
+        ],
+        "coverPhoto": "https://unsplash.it/200/?image=74",
+        "name": "Album 6"
+      }
+    }
+  ]
+}
