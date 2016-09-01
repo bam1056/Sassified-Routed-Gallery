@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 class PicturesDisplayed extends Component {
   render () {
-    let pictures = this.props.currentAlbum.photos.map((picture, index) => {
-      return <Picture navToImage={this.props.navToImage} picture={picture} key={index} />
-    })
     return <div className='PicturesDisplayed'>
       <header>
         <h1>Album #</h1>
       </header>
       <main>
-        <Sidebar />
+        <Sidebar album={this.props.albums} />
         <div className='AlbumContainer'>
-          {pictures}
+          {
+            this.props.currentAlbum.photos.map((picture, index) => {
+              return <Picture navToImage={this.props.navToImage} picture={picture} key={index} />
+            })
+          }
         </div>
       </main>
       <footer>I am a footer</footer>
@@ -36,12 +38,15 @@ class Sidebar extends Component {
   render () {
     return <div className='Sidebar'>
       <ul>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
+        {
+          this.props.album.PhotoAlbums.map(album => (
+            <li key={album.Album.name}>
+              <Link to={`/album/${album.Album.name}`}>
+                <button>{album.Album.name}</button>
+              </Link>
+            </li>
+          ))
+        }
       </ul>
     </div>
   }

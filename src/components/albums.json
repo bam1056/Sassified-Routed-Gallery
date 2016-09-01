@@ -11,7 +11,7 @@
           "https://unsplash.it/200/?image=301"
         ],
         "coverPhoto": "https://unsplash.it/200/?image=123",
-        "name": "Album 1"
+        "name": "Album1"
       }
     },
     {
@@ -25,7 +25,7 @@
           "https://unsplash.it/200/?random"
         ],
         "coverPhoto": "https://unsplash.it/200/?image=59",
-        "name": "Album 2"
+        "name": "Album2"
       }
     },
     {
@@ -39,7 +39,7 @@
           "https://unsplash.it/200/?random"
         ],
         "coverPhoto": "https://unsplash.it/200/?image=136",
-        "name": "Album 3"
+        "name": "Album3"
       }
     },
     {
@@ -53,7 +53,7 @@
           "https://unsplash.it/200/?random"
         ],
         "coverPhoto": "https://unsplash.it/200/?image=201",
-        "name": "Album 4"
+        "name": "Album4"
       }
     },
     {
@@ -67,7 +67,7 @@
           "https://unsplash.it/200/?random"
         ],
         "coverPhoto": "https://unsplash.it/200/?image=340",
-        "name": "Album 5"
+        "name": "Album5"
       }
     },
     {
@@ -81,7 +81,7 @@
           "https://unsplash.it/200/?random"
         ],
         "coverPhoto": "https://unsplash.it/200/?image=74",
-        "name": "Album 6"
+        "name": "Album6"
       }
     }
   ]

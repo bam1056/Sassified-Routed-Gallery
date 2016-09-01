@@ -33,7 +33,8 @@ class App extends Component {
     switch (this.state.currentScreen) {
       case 'AlbumsDisplayed': screen = <AlbumsDisplayed albums={this.state.albums} navigate={this.navigateToAlbum} />
         break
-      case 'PicturesDisplayed': screen = <PicturesDisplayed currentAlbum={this.state.currentAlbum} navToImage={this.navigateToImage}/>
+      case 'PicturesDisplayed': screen = <PicturesDisplayed currentAlbum={this.state.currentAlbum} navToImage={this.navigateToImage}
+      albums={this.state.albums}/>
         break
       case 'IndividualImageView': screen = <IndividualImageView currentImage={this.state.currentImage} />
         break
