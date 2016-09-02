@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import albums from './albums.json'
-import '../styles/screen.sass'
 
 class App extends Component {
 
