@@ -3,18 +3,17 @@ import { Link } from 'react-router'
 
 class PicturesDisplayed extends Component {
   render () {
+    let currentAlbum = this.props.PhotoAlbums.find((album) => {
+      album.Album.name === this.props.params.albumName
+    })
     return <div className='PicturesDisplayed'>
       <header>
-        <h1>Album #</h1>
+        <h1>{this.props.params.albumName}</h1>
       </header>
       <main>
-        <Sidebar album={this.props.albums} />
+        <Sidebar album={this.props.PhotoAlbums} />
         <div className='AlbumContainer'>
-          {
-            this.props.currentAlbum.photos.map((picture, index) => {
-              return <Picture navToImage={this.props.navToImage} picture={picture} key={index} />
-            })
-          }
+          { currentAlbum.photos.map((picture, index) => <Picture picture={picture} key={index} />) }
         </div>
       </main>
       <footer>I am a footer</footer>
@@ -23,12 +22,11 @@ class PicturesDisplayed extends Component {
 }
 
 class Picture extends Component {
-  displayImage = () => {
-    this.props.navToImage('IndividualImageView', this.props.picture)
-  }
   render () {
     return <div className='Picture'>
-      <img onClick={this.displayImage} src={this.props.picture} alt='' />
+      <Link >
+        <img src={this.props.picture} alt='' />
+      </Link>
       <h3>Description</h3>
     </div>
   }
@@ -41,7 +39,7 @@ class Sidebar extends Component {
         {
           this.props.album.PhotoAlbums.map(album => (
             <li key={album.Album.name}>
-              <Link to={`/album/${album.Album.name}`}>
+              <Link to={`/${album.Album.name}`}>
                 <button>{album.Album.name}</button>
               </Link>
             </li>
@@ -52,6 +50,15 @@ class Sidebar extends Component {
   }
 }
 PicturesDisplayed.propTypes = {
-  currentAlbum: React.PropTypes.object.isRequired
+  PhotoAlbums: React.PropTypes.array,
+  params: React.PropTypes.object
+}
+
+Sidebar.propTypes = {
+  album: React.PropTypes.array
+}
+
+Picture.propTypes = {
+  picture: React.PropTypes.string
 }
 export default PicturesDisplayed
