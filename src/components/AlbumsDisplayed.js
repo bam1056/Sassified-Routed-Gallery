@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 class AlbumsDisplayed extends Component {
   render () {
-    console.log(this.props)
+    console.log("I'm AlbumsDisplayed Component", this.props)
     return <div className='AlbumsDisplayed'>
       <header>
         <h1>Albums</h1>
@@ -19,7 +19,7 @@ class AlbumsDisplayed extends Component {
 class AlbumPicture extends Component {
   render () {
     return <div className='AlbumPicture'>
-      <Link to={`${this.props.album.name}`}>
+      <Link to={`/albums/${this.props.album.name}`}>
         <img src={this.props.album.coverPhoto} alt='cover' />
       </Link>
       <h3>Description: {this.props.album.name}</h3>

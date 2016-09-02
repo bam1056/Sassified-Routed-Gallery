@@ -3,9 +3,8 @@ import { Link } from 'react-router'
 
 class PicturesDisplayed extends Component {
   render () {
-    let currentAlbum = this.props.PhotoAlbums.find((album) => {
-      album.Album.name === this.props.params.albumName
-    })
+    console.log('Im PicturesDisplayed Component', this.props)
+    let currentAlbum = this.props.PhotoAlbums.find((album) => album.Album.name === this.props.params.albumName)
     return <div className='PicturesDisplayed'>
       <header>
         <h1>{this.props.params.albumName}</h1>
@@ -13,7 +12,7 @@ class PicturesDisplayed extends Component {
       <main>
         <Sidebar album={this.props.PhotoAlbums} />
         <div className='AlbumContainer'>
-          { currentAlbum.photos.map((picture, index) => <Picture picture={picture} key={index} />) }
+          { currentAlbum.Album.photos.map((picture, index) => <Picture picture={picture} albumName={this.props.params.albumName} id={index} key={index} />) }
         </div>
       </main>
       <footer>I am a footer</footer>
@@ -24,7 +23,7 @@ class PicturesDisplayed extends Component {
 class Picture extends Component {
   render () {
     return <div className='Picture'>
-      <Link >
+      <Link to={`/albums/${this.props.albumName}/pictures/${this.props.id}`}>
         <img src={this.props.picture} alt='' />
       </Link>
       <h3>Description</h3>
@@ -37,14 +36,19 @@ class Sidebar extends Component {
     return <div className='Sidebar'>
       <ul>
         {
-          this.props.album.PhotoAlbums.map(album => (
+          this.props.album.map(album => (
             <li key={album.Album.name}>
-              <Link to={`/${album.Album.name}`}>
+              <Link to={`/albums/${album.Album.name}`}>
                 <button>{album.Album.name}</button>
               </Link>
             </li>
           ))
         }
+        <li>
+          <Link to='/'>
+            <button>Home</button>
+          </Link>
+        </li>
       </ul>
     </div>
   }
@@ -59,6 +63,8 @@ Sidebar.propTypes = {
 }
 
 Picture.propTypes = {
-  picture: React.PropTypes.string
+  picture: React.PropTypes.string,
+  params: React.PropTypes.object,
+  id: React.PropTypes.number
 }
 export default PicturesDisplayed

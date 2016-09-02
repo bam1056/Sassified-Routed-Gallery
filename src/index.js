@@ -6,11 +6,9 @@ import { App, AlbumsDisplayed, IndividualImageView, PicturesDisplayed } from './
 const router =
   <Router history={browserHistory}>
     <Route component={App}>
-      <Route path='/' component={AlbumsDisplayed}>
-        <Route path='/:albumName' component={PicturesDisplayed}>
-          <Route path='/:picture' component={IndividualImageView} />
-        </Route>
-      </Route>
+      <Route path='/' component={AlbumsDisplayed} />
+      <Route path='/albums/:albumName' component={PicturesDisplayed} />
+      <Route path='/albums/:albumName/pictures/:pictureId' component={IndividualImageView} />
     </Route>
   </Router>
 
