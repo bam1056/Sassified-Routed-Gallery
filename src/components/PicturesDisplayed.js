@@ -3,16 +3,16 @@ import { Link } from 'react-router'
 
 class PicturesDisplayed extends Component {
   render () {
-    console.log('Im PicturesDisplayed Component', this.props)
-    let currentAlbum = this.props.PhotoAlbums.find((album) => album.Album.name === this.props.params.albumName)
+    const { params, photoAlbums } = this.props
+    let currentAlbum = photoAlbums.find((album) => album.Album.name === params.albumName)
     return <div className='PicturesDisplayed'>
       <header>
-        <h1>{this.props.params.albumName}</h1>
+        <h1>{params.albumName}</h1>
       </header>
       <main>
-        <Sidebar album={this.props.PhotoAlbums} />
+        <Sidebar album={photoAlbums} />
         <div className='AlbumContainer'>
-          { currentAlbum.Album.photos.map((picture, index) => <Picture picture={picture} albumName={this.props.params.albumName} id={index} key={index} />) }
+          { currentAlbum.Album.photos.map((picture, index) => <Picture picture={picture} albumName={params.albumName} id={index} key={index} />) }
         </div>
       </main>
       <footer>I am a footer</footer>
@@ -22,9 +22,10 @@ class PicturesDisplayed extends Component {
 
 class Picture extends Component {
   render () {
+    const { albumName, id, picture } = this.props
     return <div className='Picture'>
-      <Link to={`/albums/${this.props.albumName}/pictures/${this.props.id}`}>
-        <img src={this.props.picture} alt='' />
+      <Link to={`/albums/${albumName}/pictures/${id}`}>
+        <img src={picture} alt={`picture${id}`} />
       </Link>
       <h3>Description</h3>
     </div>
@@ -54,7 +55,7 @@ class Sidebar extends Component {
   }
 }
 PicturesDisplayed.propTypes = {
-  PhotoAlbums: React.PropTypes.array,
+  photoAlbums: React.PropTypes.array,
   params: React.PropTypes.object
 }
 
@@ -65,6 +66,7 @@ Sidebar.propTypes = {
 Picture.propTypes = {
   picture: React.PropTypes.string,
   params: React.PropTypes.object,
-  id: React.PropTypes.number
+  id: React.PropTypes.number,
+  albumName: React.PropTypes.string
 }
 export default PicturesDisplayed
