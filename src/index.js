@@ -8,8 +8,8 @@ const router =
   <Router history={browserHistory}>
     <Route component={App}>
       <Route path='/' component={AlbumsDisplayed} />
-      <Route path='/albums/:albumName' component={PicturesDisplayed} />
-      <Route path='/albums/:albumName/pictures/:pictureId' component={IndividualImageView} />
+      <Route path='/:albumName' component={PicturesDisplayed} />
+      <Route path='/:albumName/:pictureId' component={IndividualImageView} />
     </Route>
   </Router>
 

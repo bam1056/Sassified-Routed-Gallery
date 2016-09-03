@@ -20,7 +20,7 @@ class AlbumPicture extends Component {
   render () {
     const { album } = this.props
     return <div className='AlbumPicture'>
-      <Link to={`/albums/${album.name}`}>
+      <Link to={`/${album.name}`}>
         <img src={album.coverPhoto} alt='cover' />
       </Link>
       <h3>Description: {album.name}</h3>

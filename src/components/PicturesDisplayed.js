@@ -24,7 +24,7 @@ class Picture extends Component {
   render () {
     const { albumName, id, picture } = this.props
     return <div className='Picture'>
-      <Link to={`/albums/${albumName}/pictures/${id}`}>
+      <Link to={`/${albumName}/${id}`}>
         <img src={picture} alt={`picture${id}`} />
       </Link>
       <h3>Description</h3>
@@ -39,7 +39,7 @@ class Sidebar extends Component {
         {
           this.props.album.map(album => (
             <li key={album.Album.name}>
-              <Link to={`/albums/${album.Album.name}`}>
+              <Link to={`/${album.Album.name}`}>
                 <button>{album.Album.name}</button>
               </Link>
             </li>

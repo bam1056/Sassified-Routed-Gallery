@@ -7,7 +7,7 @@ class IndividualImageView extends Component {
     let currentAlbum = photoAlbums.find((album) => album.Album.name === params.albumName)
     let currentImage = currentAlbum.Album.photos[params.pictureId]
     return <div className='IndividualImageView'>
-      <Link to={`/albums/${params.albumName}`}>
+      <Link to={`/${params.albumName}`}>
         <img src={currentImage} alt='some picture' width='500' height='500' />
       </Link>
     </div>
