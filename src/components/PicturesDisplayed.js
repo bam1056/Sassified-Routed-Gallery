@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 class PicturesDisplayed extends Component {
   render () {
-    let pictures = this.props.currentAlbum.photos.map((picture, index) => {
-      return <Picture navToImage={this.props.navToImage} picture={picture} key={index} />
-    })
+    console.log('Im PicturesDisplayed Component', this.props)
+    let currentAlbum = this.props.PhotoAlbums.find((album) => album.Album.name === this.props.params.albumName)
     return <div className='PicturesDisplayed'>
       <header>
-        <h1>Album #</h1>
+        <h1>{this.props.params.albumName}</h1>
       </header>
       <main>
-        <Sidebar />
+        <Sidebar album={this.props.PhotoAlbums} />
         <div className='AlbumContainer'>
-          {pictures}
+          { currentAlbum.Album.photos.map((picture, index) => <Picture picture={picture} albumName={this.props.params.albumName} id={index} key={index} />) }
         </div>
       </main>
       <footer>I am a footer</footer>
@@ -21,12 +21,11 @@ class PicturesDisplayed extends Component {
 }
 
 class Picture extends Component {
-  displayImage = () => {
-    this.props.navToImage('IndividualImageView', this.props.picture)
-  }
   render () {
     return <div className='Picture'>
-      <img onClick={this.displayImage} src={this.props.picture} alt='' />
+      <Link to={`/albums/${this.props.albumName}/pictures/${this.props.id}`}>
+        <img src={this.props.picture} alt='' />
+      </Link>
       <h3>Description</h3>
     </div>
   }
@@ -36,17 +35,36 @@ class Sidebar extends Component {
   render () {
     return <div className='Sidebar'>
       <ul>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
-        <li><button>Album#</button></li>
+        {
+          this.props.album.map(album => (
+            <li key={album.Album.name}>
+              <Link to={`/albums/${album.Album.name}`}>
+                <button>{album.Album.name}</button>
+              </Link>
+            </li>
+          ))
+        }
+        <li>
+          <Link to='/'>
+            <button>Home</button>
+          </Link>
+        </li>
       </ul>
     </div>
   }
 }
 PicturesDisplayed.propTypes = {
-  currentAlbum: React.PropTypes.object.isRequired
+  PhotoAlbums: React.PropTypes.array,
+  params: React.PropTypes.object
+}
+
+Sidebar.propTypes = {
+  album: React.PropTypes.array
+}
+
+Picture.propTypes = {
+  picture: React.PropTypes.string,
+  params: React.PropTypes.object,
+  id: React.PropTypes.number
 }
 export default PicturesDisplayed

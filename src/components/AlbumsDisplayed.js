@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 class AlbumsDisplayed extends Component {
   render () {
-    const albumGroup = this.props.albums.PhotoAlbums.map((album, index) => {
-      return <AlbumPicture album={album.Album} navigate={this.props.navigate} key={index} />
-    })
-    console.log(this.props.albums)
+    console.log("I'm AlbumsDisplayed Component", this.props)
     return <div className='AlbumsDisplayed'>
       <header>
         <h1>Albums</h1>
       </header>
       <div className='AlbumContainer'>
-        {albumGroup}
+        { this.props.PhotoAlbums.map((album, index) => <AlbumPicture album={album.Album} key={index} />) }
       </div>
       <footer>I am a footer</footer>
     </div>
@@ -19,23 +17,22 @@ class AlbumsDisplayed extends Component {
 }
 
 class AlbumPicture extends Component {
-  displayAlbum = () => {
-    this.props.navigate('PicturesDisplayed', this.props.album)
-  }
-
   render () {
     return <div className='AlbumPicture'>
-      <img onClick={this.displayAlbum} src={this.props.album.coverPhoto} alt='cover' />
+      <Link to={`/albums/${this.props.album.name}`}>
+        <img src={this.props.album.coverPhoto} alt='cover' />
+      </Link>
       <h3>Description: {this.props.album.name}</h3>
     </div>
   }
 }
 
 AlbumsDisplayed.propTypes = {
-  albums: React.PropTypes.object.isRequired,
+  PhotoAlbums: React.PropTypes.array,
   navigate: React.PropTypes.func
 }
 AlbumPicture.propTypes = {
-  navigate: React.PropTypes.func
+  navigate: React.PropTypes.func,
+  album: React.PropTypes.object.isRequired
 }
 export default AlbumsDisplayed
