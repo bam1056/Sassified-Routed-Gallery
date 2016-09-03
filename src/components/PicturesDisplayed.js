@@ -15,7 +15,6 @@ class PicturesDisplayed extends Component {
           { currentAlbum.Album.photos.map((picture, index) => <Picture picture={picture} albumName={params.albumName} id={index} key={index} />) }
         </div>
       </main>
-      <footer>I am a footer</footer>
     </div>
   }
 }
