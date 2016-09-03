@@ -4,14 +4,14 @@ import { Link } from 'react-router'
 class AlbumsDisplayed extends Component {
   render () {
     const { photoAlbums } = this.props
-    return <div className='AlbumsDisplayed'>
+    return <div className='AlbumsDisplayed row'>
       <header>
         <h1>Albums</h1>
       </header>
-      <div className='AlbumContainer'>
+      <hr />
+      <div className='AlbumContainer col-lg-4'>
         {photoAlbums.map((album, index) => <AlbumPicture album={album.Album} key={index} />)}
       </div>
-      <footer>I am a footer</footer>
     </div>
   }
 }
@@ -23,7 +23,7 @@ class AlbumPicture extends Component {
       <Link to={`/${album.name}`}>
         <img src={album.coverPhoto} alt='cover' />
       </Link>
-      <h3>Description: {album.name}</h3>
+      <h3>{album.name}</h3>
     </div>
   }
 }

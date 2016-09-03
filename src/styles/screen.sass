@@ -1,23 +1,80 @@
 @import 'utility'
 
 $base-text-size: 16px
-$base-font-family: sans-serif
+$base-font-family: 'Parisienne', cursive
 
 html
   text-size-adjust: 100%
+  min-height: 100vh
 
 body
   @include font-smoothing(on)
   margin: 0
   font: $base-text-size / 1 $base-font-family
+  min-height: 100vh
+  background-image: url('http://vignette4.wikia.nocookie.net/battlefield/images/0/0e/BFBC2V_Clean_Background_1080P.png/revision/latest?cb=20130118145140')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
 
-main
+.App
+  min-height: 100vh
   display: flex
+  flex-direction: column
+  justify-content: space-between
 
-  .AlbumContainer
+.AlbumsDisplayed
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  header
+    font-size: 4em
     display: flex
-    flex-wrap: wrap
-    width: 66vw
-button
-  width: 100px
-  height: auto
+    justify-content: flex-start
+    height: 135px
+    min-width: 100vw
+    color: white
+    background-color: black
+    opacity: 0.5
+
+    h1
+      margin: 0 0 0 75px
+
+hr
+  width: 100vw
+  margin-top: -15px
+  margin-bottom: 75px
+
+
+.AlbumContainer
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+  width: 66vw
+  margin-right: 0px
+
+.AlbumPicture
+  display: flex
+  flex-direction: column
+  text-align: center
+  margin: 5px
+  border: 3px solid black
+
+  img
+    margin-bottom: -10px
+    padding: 3px
+
+  h3
+    background-color: white
+    margin: 4px
+    border: 1px solid black
+    box-shadow: 1px 1px 3px black
+
+footer
+  text-align: center
+  padding: 35px 0
+  font-size: 1.5em
+  color: white
+  background-color: black
+  opacity: .5
