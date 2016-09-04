@@ -26,7 +26,7 @@ class Picture extends Component {
       <Link to={`/${albumName}/${id}`}>
         <img src={picture} alt={`picture${id}`} />
       </Link>
-      <h3>Description</h3>
+      <h3><a href={picture}>{albumName} Picture {id}</a></h3>
     </div>
   }
 }
