@@ -9,7 +9,7 @@ class AlbumsDisplayed extends Component {
         <h1>Albums</h1>
       </header>
       <hr />
-      <div className='AlbumContainer col-lg-4'>
+      <div className='AlbumContainer'>
         {photoAlbums.map((album, index) => <AlbumPicture album={album.Album} key={index} />)}
       </div>
     </div>

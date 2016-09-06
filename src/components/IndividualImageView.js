@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 class IndividualImageView extends Component {
+  componentWillReceiveProps (nextProps) {
+    this.setState({params: nextProps.params})
+    console.log("IndividualImage", this.state.params)
+  }
   render () {
     const { photoAlbums, params } = this.props
     let currentAlbum = photoAlbums.find((album) => album.Album.name === params.albumName)
