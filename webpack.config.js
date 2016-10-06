@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const ROOT_PATH = path.resolve(__dirname)
 const SOURCE_PATH = path.resolve(ROOT_PATH, 'src')
-const BUILD_PATH = path.resolve(ROOT_PATH, 'build')
+const BUILD_PATH = path.resolve(ROOT_PATH, 'docs')
 
 module.exports = {
   entry: [
